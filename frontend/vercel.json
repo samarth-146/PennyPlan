@@ -5,6 +5,42 @@
         "destination": "http://13.233.76.176:8080/login"
       },
       {
+        "source":"/signup",
+        "destination":"http://13.233.76.176:8080/login"
+      },
+      {
+        "source": "/onboard/:currentUser",
+        "destination": "http://13.233.76.176:8080/onboard/:currentUser"
+      },
+      {
+        "source": "/user/:userId",
+        "destination": "http://13.233.76.176:8080/user/:userId"
+      },
+      {
+        "source": "/expense/:userId",
+        "destination": "http://13.233.76.176:8080/expense/:userId"
+      },
+      {
+        "source": "/roundupcount/:userId",
+        "destination": "http://13.233.76.176:8080/roundupcount/:userId"
+      },
+      {
+        "source": "/roundup-setting/:userId",
+        "destination": "http://13.233.76.176:8080/roundup-setting/:userId"
+      },
+      {
+        "source": "/weekly-behavior/:userId",
+        "destination": "http://13.233.76.176:8080/weekly-behavior/:userId"
+      },
+      {
+        "source": "/weekly-suggestion/:userId",
+        "destination": "http://13.233.76.176:8080/weekly-suggestion/:userId"
+      },
+      {
+        "source": "/logout",
+        "destination": "http://13.233.76.176:8080/logout"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }

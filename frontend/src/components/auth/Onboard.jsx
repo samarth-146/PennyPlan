@@ -120,7 +120,7 @@ export default function Onboard() {
     const currentUser = localStorage.getItem("userId");
 
     try {
-      await axios.put(`/api/onboard/${currentUser}`, {
+      await axios.put(`/onboard/${currentUser}`, {
         income:formData.income,
         expanse:formData.expenses,
         goalAmount:formData.goalAmount,

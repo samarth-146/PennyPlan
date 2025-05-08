@@ -63,7 +63,7 @@ export default function Signup() {
     const { email, password, username } = formData;
   
     try {
-      const response = await axios.post('http://13.233.76.176:8080/signup', {
+      const response = await axios.post('/signup', {
         email,
         password,
         username
