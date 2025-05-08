@@ -13,7 +13,7 @@ export default function NotificationCenter() {
     const userId = localStorage.getItem("userId")
     const fetchAlerts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/weekly-behavior/${userId}`)
+        const response = await axios.get(`http://13.233.76.176:8080/weekly-behavior/${userId}`)
         setAlerts(response.data.alerts)
       } catch (e) {
         console.error(e)
@@ -21,7 +21,7 @@ export default function NotificationCenter() {
     }
     const fetchWeeklyAlerts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/weekly-suggestion/${userId}`);
+        const response = await axios.get(`http://13.233.76.176:8080/weekly-suggestion/${userId}`);
         // console.log(response.data.alerts);
         setWeeklyAlerts(response.data.alerts);
       } catch (e) {

@@ -8,7 +8,7 @@ const expenseRouter=require('./routes/expense');
 
 
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173","https://main.d352t85122zmxf.amplifyapp.com"],
     credentials:true,
     allowedHeaders:["Content-Type","Authorization"]
 }));
