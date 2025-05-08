@@ -6,7 +6,7 @@
       },
       {
         "source":"/signup",
-        "destination":"http://13.233.76.176:8080/login"
+        "destination":"http://13.233.76.176:8080/signup"
       },
       {
         "source": "/onboard/:currentUser",
