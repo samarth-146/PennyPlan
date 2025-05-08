@@ -64,7 +64,7 @@ export default function Signin() {
     const { email, password } = formData;
 
     try {
-      const response = await axios.post("/api/login", {
+      const response = await axios.post("/login", {
         email,
         password,
       });
