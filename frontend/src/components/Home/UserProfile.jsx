@@ -44,7 +44,7 @@ export default function UserProfile() {
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         const fetchProfile = async () => {
-            const response = await axios.get(`http://localhost:8080/user/${userId}`);
+            const response = await axios.get(`http://13.233.76.176:8080/user/${userId}`);
             setUserProfile(response.data);
         }
         fetchProfile();
@@ -74,7 +74,7 @@ export default function UserProfile() {
     const handleLogout = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:8080/logout', {}, {
+            await axios.post('http://13.233.76.176:8080/logout', {}, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
@@ -91,7 +91,7 @@ export default function UserProfile() {
         e.preventDefault()
         try {
             const userId = localStorage.getItem('userId');
-            const response = await axios.put(`http://localhost:8080/profile/${userId}`, {
+            const response = await axios.put(`http://13.233.76.176:8080/profile/${userId}`, {
                 email: formData.email,
                 monthlyIncome: formData.monthlyIncome,
                 monthlyExpanse: formData.monthlyExpense,

@@ -44,17 +44,17 @@ export default function ExpenseTracker() {
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         const displayExpense = async () => {
-            const expense = await axios.get(`http://localhost:8080/expense/${userId}`);
+            const expense = await axios.get(`http://13.233.76.176:8080/expense/${userId}`);
             setExpenses(expense.data);
         };
         const displayUserfunction = async () => {
-            const user = await axios.get(`http://localhost:8080/user/${userId}`);
+            const user = await axios.get(`http://13.233.76.176:8080/user/${userId}`);
             // console.log(user.data);
             setDisplayUser(user.data);
         };
         const displayTransaction=async()=>{
             try{
-                const response=await axios.get(`http://localhost:8080/roundupcount/${userId}`);
+                const response=await axios.get(`http://13.233.76.176:8080/roundupcount/${userId}`);
                 setTransaction(response.data)
             }catch(e){
                 console.error(e);
@@ -79,7 +79,7 @@ export default function ExpenseTracker() {
     const updateRoundUpSetting = async (enabled, method, customValue = 0) => {
         try {
             const userId = localStorage.getItem('userId');
-            const res = await fetch(`http://localhost:8080/roundup-setting/${userId}`, {
+            const res = await fetch(`http://13.233.76.176:8080/roundup-setting/${userId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -112,7 +112,7 @@ export default function ExpenseTracker() {
         e.preventDefault()
         const userId = localStorage.getItem('userId');
         try {
-            const expense = await axios.post('http://localhost:8080/expense', {
+            const expense = await axios.post('http://13.233.76.176:8080/expense', {
                 userId: userId,
                 title: expenseForm.description,
                 amount: expenseForm.amount,

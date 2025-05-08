@@ -32,7 +32,7 @@ export default function DashboardHome() {
     useEffect(() => {
         const fetchUser = async () => {
             const userId = localStorage.getItem('userId');
-            const user = await axios.get(`http://localhost:8080/user/${userId}`);
+            const user = await axios.get(`http://13.233.76.176:8080/user/${userId}`);
             // console.log(user);
             setUserDetail(user.data);
         }
