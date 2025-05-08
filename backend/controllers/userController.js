@@ -10,7 +10,7 @@ dotenv.config();
 
 async function predictRisk({ income, expanses, quiz_score, goal_amount }) {
     try {
-        const response = await axios.post("http://127.0.0.1:5000/predict", {
+        const response = await axios.post("https://ml-api-wqyb.onrender.com/predict", {
             income,
             expenses: expanses,
             quiz_score,

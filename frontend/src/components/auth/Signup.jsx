@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { EyeIcon, EyeOffIcon, LockOpenIcon as LockClosedIcon, MailIcon, UserIcon } from "lucide-react"
+import { EyeIcon, EyeOffIcon, LockOpenIcon as LockClosedIcon, MailIcon, UserIcon,PiggyBankIcon } from "lucide-react"
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../authContext';
 import { toast } from 'react-toastify';
 
@@ -102,7 +102,23 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-green-50 to-blue-50 p-4">
+        <header className="w-full mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-start">
+            <div className="flex">
+              <div className="flex-shrink-0 flex items-start">
+                <Link to='/dashboard'>
+                <PiggyBankIcon className="h-8 w-8 text-green-600" />
+                </Link>
+                <Link to='/dashboard'>
+                <span className="ml-2 text-xl font-bold text-gray-800">PennyPlan</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="bg-green-600 py-4">
           <h1 className="text-center text-white text-2xl font-bold">PennyPlan</h1>
@@ -190,25 +206,6 @@ export default function Signup() {
                 {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password}</p>}
               </div>
 
-              <div className="flex items-center justify-between">
-                {/* <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
-                  />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                    Remember me
-                  </label>
-                </div> */}
-
-                {/* <div className="text-sm">
-                  <a href="#" className="font-medium text-green-600 hover:text-green-500">
-                    Forgot password?
-                  </a>
-                </div> */}
-              </div>
 
               <div>
                 <button
@@ -224,9 +221,9 @@ export default function Signup() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
-              <a href="#" className="font-medium text-green-600 hover:text-green-500">
-                Sign in
-              </a>
+              <Link to='/auth' className="font-medium text-green-600 hover:text-green-500">
+              Sign in
+              </Link>
             </p>
           </div>
         </div>

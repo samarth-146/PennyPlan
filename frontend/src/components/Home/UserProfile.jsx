@@ -23,7 +23,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     // User profile data
     const [profile, setProfile] = useState({
         username: "alex_student",
@@ -71,18 +71,18 @@ export default function UserProfile() {
         })
     }
 
-    const handleLogout=async()=>{
-        try{
-            const token=localStorage.getItem('token');
+    const handleLogout = async () => {
+        try {
+            const token = localStorage.getItem('token');
             await axios.post('http://localhost:8080/logout', {}, {
                 headers: { Authorization: `Bearer ${token}` },
-                withCredentials: true, 
+                withCredentials: true,
             });
             localStorage.removeItem('token');
             localStorage.removeItem('userId');
             navigate('/auth');
-        }catch(e){
-            console.error("Logout failed",e);
+        } catch (e) {
+            console.error("Logout failed", e);
         }
     };
 
@@ -153,9 +153,7 @@ export default function UserProfile() {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="flex-shrink-0 flex items-center">
-                                {/* <button className="inline-flex items-center mr-3 text-gray-500 hover:text-gray-700">
-                  <ArrowLeftIcon className="h-5 w-5" />
-                </button> */}
+                              
                                 <Link to='/'>
                                     <PiggyBankIcon className="h-8 w-8 text-green-600" />
                                 </Link>
@@ -220,20 +218,13 @@ export default function UserProfile() {
                                     <div className="mt-2 text-2xl font-bold text-gray-900">₹{userProfile.monthlyIncome - userProfile.monthlyExpanse + userProfile.roundUpSum || 0}</div>
                                     <div className="mt-1 text-sm text-gray-500">Through all saving methods</div>
                                 </div>
-                                {/* <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="flex items-center">
-                    <LineChartIcon className="h-6 w-6 text-blue-600" />
-                    <span className="ml-2 text-sm font-medium text-gray-700">Total Invested</span>
-                  </div>
-                  <div className="mt-2 text-2xl font-bold text-gray-900">${profile.totalInvested}</div>
-                  <div className="mt-1 text-sm text-gray-500">Across all investment options</div>
-                </div> */}
+                                
                                 <div className="bg-gray-50 rounded-lg p-4">
                                     <div className="flex items-center">
                                         <CreditCardIcon className="h-6 w-6 text-purple-600" />
                                         <span className="ml-2 text-sm font-medium text-gray-700">Round-Up Savings</span>
                                     </div>
-                                    <div className="mt-2 text-2xl font-bold text-gray-900">₹{userProfile.roundUpSum}</div>
+                                    <div className="mt-2 text-2xl font-bold text-gray-900">₹{userProfile.roundUpSum || 0}</div>
                                     <div className="mt-1 text-sm text-gray-500">From transaction round-ups</div>
                                 </div>
                             </div>
@@ -371,19 +362,7 @@ export default function UserProfile() {
                                                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                                             />
                                         </div>
-                                        {/* <div>
-                      <label htmlFor="savingPurpose" className="block text-sm font-medium text-gray-700">
-                        Saving Purpose
-                      </label>
-                      <textarea
-                        name="savingPurpose"
-                        id="savingPurpose"
-                        rows={3}
-                        value={formData.savingPurpose}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                      />
-                    </div> */}
+                                      
                                     </div>
                                 </form>
                             ) : (
@@ -394,7 +373,15 @@ export default function UserProfile() {
                                                 <PiggyBankIcon className="h-5 w-5 text-green-500 mr-2" />
                                                 <span className="text-sm font-medium text-gray-700">Monthly Saving Target</span>
                                             </div>
-                                            <span className="text-sm font-medium text-green-600">₹{userProfile.monthlyIncome - userProfile.monthlyExpanse + userProfile.roundUpSum || 0}</span>
+                                            <span className="text-sm font-medium text-green-600">
+                                                ₹{
+                                                    (
+                                                        (userProfile.monthlyIncome || 0) -
+                                                        (userProfile.monthlyExpanse || 0) +
+                                                        (userProfile.roundUpSum || 0)
+                                                    ).toFixed(2)
+                                                }
+                                            </span>
                                         </div>
                                         <div className="w-full bg-gray-200 rounded-full h-2.5">
                                             <div
@@ -402,14 +389,9 @@ export default function UserProfile() {
                                                 style={{ width: `${Math.min(savingsPercentage, 100)}%` }}
                                             ></div>
                                         </div>
-                                        <div className="mt-1 text-xs text-gray-500 text-right">{savingsPercentage}% of monthly income</div>
+                                        <div className="mt-1 text-xs text-gray-500 text-right">{savingsPercentage.toFixed(2)}% of monthly income</div>
                                     </div>
-                                    {/* <div className="bg-gray-50 rounded-lg p-4">
-                    <div className="flex items-center mb-2">
-                      <TargetIcon className="h-5 w-5 text-green-500 mr-2" />
-                      <span className="text-sm font-medium text-gray-700">Saving Purpose</span>
-                    </div>
-                  </div> */}
+                                   
                                 </div>
                             )}
                         </div>
@@ -422,7 +404,7 @@ export default function UserProfile() {
                             <div className="p-6">
                                 <div className="flex items-center mb-4">
                                     <div className={`h-4 w-4 rounded-full ${riskLevelInfo[profile.riskLevel].color} mr-2`}></div>
-                                    <span className="text-lg font-medium text-gray-900">{profile.riskLevel} Risk Level</span>
+                                    <span className="text-lg font-medium text-gray-900">{userProfile.riskTolerance} Risk Level</span>
                                 </div>
                                 <p className="text-sm text-gray-600 mb-4">{riskLevelInfo[profile.riskLevel].description}</p>
                                 <div className="bg-gray-50 rounded-lg p-4">
@@ -449,11 +431,7 @@ export default function UserProfile() {
                                         </ul>
                                     )}
                                 </div>
-                                <div className="mt-4">
-                                    <button className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                        Retake Risk Assessment Quiz
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
 
@@ -478,34 +456,7 @@ export default function UserProfile() {
                                             <span className="text-sm font-medium text-green-600">{userProfile.roundUpSum}₹</span>
                                         </div>
                                     </li>
-                                    {/* <li className="py-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                          <DollarSignIcon className="h-4 w-4 text-blue-600" />
-                        </div>
-                        <div className="ml-3">
-                          <p className="text-sm font-medium text-gray-900">Monthly Deposit</p>
-                          <p className="text-xs text-gray-500">May 1, 2025</p>
-                        </div>
-                      </div>
-                      <span className="text-sm font-medium text-green-600">+$50.00</span>
-                    </div>
-                  </li> */}
-                                    {/* <li className="py-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
-                          <LineChartIcon className="h-4 w-4 text-purple-600" />
-                        </div>
-                        <div className="ml-3">
-                          <p className="text-sm font-medium text-gray-900">Investment Return</p>
-                          <p className="text-xs text-gray-500">April 30, 2025</p>
-                        </div>
-                      </div>
-                      <span className="text-sm font-medium text-green-600">+$12.75</span>
-                    </div>
-                  </li> */}
+                                
                                     <li className="py-3">
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center">
@@ -521,9 +472,7 @@ export default function UserProfile() {
                                         </div>
                                     </li>
                                 </ul>
-                                <div className="mt-4 text-center">
-                                    <button className="text-sm font-medium text-green-600 hover:text-green-500">View All Activity</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>

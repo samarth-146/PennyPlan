@@ -7,6 +7,7 @@ import {
     LineChartIcon,
     PiggyBankIcon,
     TrendingUpIcon,
+    BellIcon
 } from "lucide-react"
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -14,7 +15,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Dashboard() {
-    
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
             {/* Navigation */}
@@ -64,11 +65,6 @@ export default function Dashboard() {
                         <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
                             <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
                                 <div className="relative block w-full bg-white rounded-lg overflow-hidden">
-                                    {/* <img
-                      className="w-full"
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="PennyPlan dashboard preview"
-                    /> */}
                                     <div className="absolute inset-0 w-full h-full flex items-center justify-center">
                                         <svg className="h-20 w-20 text-green-500" fill="currentColor" viewBox="0 0 84 84">
                                             <circle opacity="0.9" cx="42" cy="42" r="42" fill="white" />
@@ -103,52 +99,48 @@ export default function Dashboard() {
                                     <CoinsIcon className="h-6 w-6" />
                                 </div>
                                 <div className="ml-16">
-                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Round-Up Saving System</h3>
+                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Automatic Round-Up Savings</h3>
                                     <p className="mt-2 text-base text-gray-500">
-                                        We automatically round up your everyday purchases and invest the spare change. Buy a coffee for
-                                        $3.50? We'll invest $0.50 for your future.
+                                        Every time you spend, we round up your purchase to the nearest rupee and invest the spare change—effortless micro-saving designed for students.
                                     </p>
                                 </div>
                             </div>
 
                             {/* Feature 2 */}
-                            <div className="relative">
+                            <div className="relative mt-10">
                                 <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <CoffeeIcon className="h-6 w-6" />
                                 </div>
                                 <div className="ml-16">
-                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Smart Weekly Suggestions</h3>
+                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Weekly Smart Suggestions</h3>
                                     <p className="mt-2 text-base text-gray-500">
-                                        Our AI analyzes your spending habits and suggests small changes. Skip one coffee this week? That's
-                                        $5 more toward your financial goals.
+                                        Our model reviews your spending and notify that you have spent more on something like beverages this week
                                     </p>
                                 </div>
                             </div>
 
                             {/* Feature 3 */}
-                            <div className="relative">
+                            <div className="relative mt-10">
                                 <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
-                                    <LineChartIcon className="h-6 w-6" />
+                                    <BellIcon className="h-6 w-6" />
                                 </div>
                                 <div className="ml-16">
-                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Student-Focused Investments</h3>
+                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Spending Pattern Notifications</h3>
                                     <p className="mt-2 text-base text-gray-500">
-                                        Investment options tailored for students with limited funds. Start with as little as $5 and grow
-                                        your portfolio over time.
+                                        We track your expenses weekly and alert you if you've spent more than usual in any category compared to the past 3 weeks—stay on top of your budget without the guesswork.
                                     </p>
                                 </div>
                             </div>
 
                             {/* Feature 4 */}
-                            <div className="relative">
+                            <div className="relative mt-10">
                                 <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
-                                    <TrendingUpIcon className="h-6 w-6" />
+                                    <LineChartIcon className="h-6 w-6" />
                                 </div>
                                 <div className="ml-16">
-                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Financial Education</h3>
+                                    <h3 className="text-lg leading-6 font-medium text-gray-900">Investments by Risk Level</h3>
                                     <p className="mt-2 text-base text-gray-500">
-                                        Learn as you earn. PennyPlan provides bite-sized financial lessons to help you become a smarter
-                                        investor.
+                                        Our model determines based on your income, expense and quiz answers that whether you have to invest in low,medium or high risk options.
                                     </p>
                                 </div>
                             </div>
@@ -159,52 +151,53 @@ export default function Dashboard() {
 
             {/* How It Works Section */}
             <section className="py-12 bg-green-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="lg:text-center">
-                        <h2 className="text-base text-green-600 font-semibold tracking-wide uppercase">How It Works</h2>
-                        <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                            Three simple steps to start investing
-                        </p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:text-center">
+            <h2 className="text-base text-green-600 font-semibold tracking-wide uppercase">How It Works</h2>
+            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                Start saving and investing in three easy steps
+            </p>
+        </div>
+
+        <div className="mt-10">
+            <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                {/* Step 1 */}
+                <div className="relative bg-white p-6 rounded-lg shadow-md">
+                    <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
+                        1
                     </div>
-
-                    <div className="mt-10">
-                        <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
-                            {/* Step 1 */}
-                            <div className="relative bg-white p-6 rounded-lg shadow-md">
-                                <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
-                                    1
-                                </div>
-                                <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Connect Your Account</h3>
-                                <p className="mt-2 text-base text-gray-500">
-                                    Securely link your bank account to track your everyday purchases and enable round-ups.
-                                </p>
-                            </div>
-
-                            {/* Step 2 */}
-                            <div className="relative bg-white p-6 rounded-lg shadow-md">
-                                <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
-                                    2
-                                </div>
-                                <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Set Your Goals</h3>
-                                <p className="mt-2 text-base text-gray-500">
-                                    Tell us what you're saving for - tuition, spring break, or your first apartment after graduation.
-                                </p>
-                            </div>
-
-                            {/* Step 3 */}
-                            <div className="relative bg-white p-6 rounded-lg shadow-md">
-                                <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
-                                    3
-                                </div>
-                                <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Watch Your Money Grow</h3>
-                                <p className="mt-2 text-base text-gray-500">
-                                    As you spend, we'll automatically invest your spare change and suggest small habit changes.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Link Your Account</h3>
+                    <p className="mt-2 text-base text-gray-500">
+                        Add your expense so we can track your purchases, round up each transaction, and save the spare change automatically.
+                    </p>
                 </div>
-            </section>
+
+                {/* Step 2 */}
+                <div className="relative bg-white p-6 rounded-lg shadow-md">
+                    <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
+                        2
+                    </div>
+                    <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Set Financial Goals</h3>
+                    <p className="mt-2 text-base text-gray-500">
+                        Whether it's a travel fund or emergency savings, customize your goal and we’ll recommend a tailored investment strategy based on your risk comfort.
+                    </p>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative bg-white p-6 rounded-lg shadow-md">
+                    <div className="absolute -top-4 -left-4 flex items-center justify-center h-12 w-12 rounded-full bg-green-600 text-white font-bold text-xl">
+                        3
+                    </div>
+                    <h3 className="mt-8 text-lg leading-6 font-medium text-gray-900">Stay Smart & Grow</h3>
+                    <p className="mt-2 text-base text-gray-500">
+                        We save your spare change and provide weekly suggestions based on your habits. If your food or coffee spending spikes, we’ll notify you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -218,19 +211,13 @@ export default function Dashboard() {
                         </h2>
                         <div className="mt-8 flex justify-center">
                             <div className="inline-flex rounded-md shadow">
-                                {/* <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-gray-50 transition-all duration-200">
-                                    Get Started
-                                </button> */}
+                                
                                 <Link to="/auth" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-gray-50 transition-all duration-200">
                                     Get Started
                                     <ChevronRightIcon className="ml-2 -mr-1 h-5 w-5 text-green-600" />
                                 </Link>
                             </div>
-                            {/* <div className="ml-3 inline-flex">
-                  <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 transition-all duration-200">
-                    Learn more
-                  </button>
-                </div> */}
+                           
                         </div>
                     </div>
                 </div>

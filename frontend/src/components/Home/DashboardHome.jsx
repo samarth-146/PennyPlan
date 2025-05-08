@@ -17,7 +17,11 @@ import {
     TrendingUpIcon,
     UserIcon,
     FileTextIcon,
-    PlusIcon
+    PlusIcon,
+    HomeIcon,
+    CandlestickChartIcon,
+    BitcoinIcon,
+    BriefcaseIcon
 } from "lucide-react"
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -63,33 +67,7 @@ export default function DashboardHome() {
                                 >
                                     Dashboard
                                 </button>
-                                {/* <button
-                                    onClick={() => setActiveTab("investments")}
-                                    className={`${activeTab === "investments"
-                                        ? "border-green-500 text-gray-900"
-                                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-                                >
-                                    Investments
-                                </button> */}
-                                {/* <button
-                                    onClick={() => setActiveTab("savings")}
-                                    className={`${activeTab === "savings"
-                                        ? "border-green-500 text-gray-900"
-                                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-                                >
-                                    Savings
-                                </button> */}
-                                {/* <button
-                                    onClick={() => setActiveTab("learn")}
-                                    className={`${activeTab === "learn"
-                                        ? "border-green-500 text-gray-900"
-                                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-                                >
-                                    Learn
-                                </button> */}
+                                
                             </nav>
                         </div>
                         <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -101,9 +79,7 @@ export default function DashboardHome() {
                                 <span className="sr-only">Add Expense</span>
                                 <PlusIcon className="h-6 w-6" />
                             </Link>
-                            {/* <button className="">
-                                
-                            </button> */}
+                          
 
                             <div className="ml-3 relative">
                                 <div>
@@ -138,11 +114,7 @@ export default function DashboardHome() {
                                     Welcome {userDetail.username}!
                                 </h2>
 
-                                {/* <div className="rounded-md shadow">
-                                    <button className="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-green-600 bg-white hover:text-green-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                        Add Funds
-                                    </button>
-                                </div> */}
+                                
                             </div>
                             <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">
                                 🧠 Risk Profile: {userDetail.riskTolerance}
@@ -163,11 +135,7 @@ export default function DashboardHome() {
                                     <div className="mt-2 text-2xl font-bold text-white">
                                         {(userDetail.monthlyIncome || 0) - (userDetail.monthlyExpanse || 0) + (userDetail.roundUpSum || 0)}₹
                                     </div>
-                                    {/* <div className="mt-1 text-sm text-green-100">
-                                        {userDetail.monthlyIncome
-                                            ? (((userDetail.monthlyIncome - (userDetail.monthlyExpanse || 0) + (userDetail.roundUpSum || 0)) / userDetail.monthlyIncome) * 100).toFixed(2)
-                                            : "0"}% saved
-                                    </div> */}
+                                    
 
                                 </div>
                                 <div className="bg-white/10 rounded-lg p-4">
@@ -181,14 +149,7 @@ export default function DashboardHome() {
                                             : "0"}% saved
                                     </div>
                                 </div>
-                                {/* <div className="bg-white/10 rounded-lg p-4">
-                                    <div className="flex items-center">
-                                        <CoffeeIcon className="h-6 w-6 text-white" />
-                                        <span className="ml-2 text-sm font-medium text-white">Saved by Skipping</span>
-                                    </div>
-                                    <div className="mt-2 text-2xl font-bold text-white">$45.00</div>
-                                    <div className="mt-1 text-sm text-green-100">9 coffees this month</div>
-                                </div> */}
+                                
                             </div>
                         </div>
                     </div>
@@ -461,81 +422,98 @@ export default function DashboardHome() {
                                     <div className="p-6">
                                         <div className="flex items-start">
                                             <div className="flex-shrink-0 bg-blue-100 rounded-md p-2">
-                                                <TrendingUpIcon className="h-6 w-6 text-blue-600" />
+                                                <BanknoteIcon className="h-6 w-6 text-blue-600" />
                                             </div>
                                             <div className="ml-4">
-                                                <h4 className="text-lg font-medium text-gray-900">S&P 500 Index Fund</h4>
+                                                <h4 className="text-lg font-medium text-gray-900">Recurring Deposits with NBFCs</h4>
                                                 <div className="mt-1 flex items-center">
-                                                    <span className="text-sm font-medium text-blue-600">7-10% annual return</span>
+                                                    <span className="text-sm font-medium text-blue-600">7.5–9% annual return</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Minimum: $100</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹500/month</span>
                                                     <span className="mx-2 text-gray-500">•</span>
                                                     <span className="text-sm text-gray-500">Risk: Medium</span>
                                                 </div>
                                                 <p className="mt-2 text-sm text-gray-600">
-                                                    This fund tracks the S&P 500 index, which includes 500 of the largest U.S. companies. It
-                                                    provides broad market exposure with a single investment.
+                                                    Non-Banking Financial Companies (NBFCs) offer higher interest rates than banks for recurring deposits with slightly higher risk.
                                                 </p>
                                                 <div className="mt-4 bg-gray-50 rounded-md p-4">
                                                     <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
                                                     <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
-                                                        <li>Historically strong returns over long time periods</li>
-                                                        <li>Automatic diversification across 500 major companies</li>
-                                                        <li>Very low fees compared to actively managed funds</li>
-                                                        <li>Best for long-term goals (5+ years)</li>
+                                                        <li>Predictable returns with monthly savings</li>
+                                                        <li>Higher interest than bank RDs</li>
+                                                        <li>Ideal for disciplined savers</li>
                                                     </ul>
                                                 </div>
-                                                <div className="mt-4 flex">
-                                                    <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                        Invest Now
-                                                    </button>
-                                                    <button className="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                        Learn More
-                                                    </button>
-                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Offered by reputable NBFCs like Bajaj Finance, Mahindra Finance</div>
                                             </div>
                                         </div>
                                     </div>
 
+
                                     {/* Option 3 */}
                                     <div className="p-6">
                                         <div className="flex items-start">
-                                            <div className="flex-shrink-0 bg-blue-100 rounded-md p-2">
-                                                <LineChartIcon className="h-6 w-6 text-blue-600" />
+                                            <div className="flex-shrink-0 bg-purple-100 rounded-md p-2">
+                                                <HomeIcon className="h-6 w-6 text-purple-600" />
                                             </div>
                                             <div className="ml-4">
-                                                <h4 className="text-lg font-medium text-gray-900">ESG Future Fund</h4>
+                                                <h4 className="text-lg font-medium text-gray-900">REITs (Real Estate Investment Trusts)</h4>
                                                 <div className="mt-1 flex items-center">
-                                                    <span className="text-sm font-medium text-blue-600">6-9% annual return</span>
+                                                    <span className="text-sm font-medium text-purple-600">6–9% annual return</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Minimum: $75</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹500–₹1000</span>
                                                     <span className="mx-2 text-gray-500">•</span>
                                                     <span className="text-sm text-gray-500">Risk: Medium</span>
                                                 </div>
                                                 <p className="mt-2 text-sm text-gray-600">
-                                                    This fund focuses on companies with strong environmental, social, and governance (ESG)
-                                                    practices. Invest in businesses that align with your values while seeking growth.
+                                                    REITs allow you to invest in real estate projects without owning physical property — you earn from rental income and value appreciation.
                                                 </p>
                                                 <div className="mt-4 bg-gray-50 rounded-md p-4">
                                                     <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
                                                     <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
-                                                        <li>Invest in companies that align with your values</li>
-                                                        <li>Exposure to companies focused on sustainability and social responsibility</li>
-                                                        <li>Potential for strong growth as ESG factors become more important</li>
-                                                        <li>Best for medium to long-term goals (4+ years)</li>
+                                                        <li>Real estate exposure without high capital</li>
+                                                        <li>Monthly/quarterly dividends</li>
+                                                        <li>Listed on stock exchanges (easy to buy/sell)</li>
                                                     </ul>
                                                 </div>
-                                                <div className="mt-4 flex">
-                                                    <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                        Invest Now
-                                                    </button>
-                                                    <button className="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                        Learn More
-                                                    </button>
-                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Examples: Embassy REIT, Mindspace REIT (NSE/BSE)</div>
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <div className="p-6">
+                                        <div className="flex items-start">
+                                            <div className="flex-shrink-0 bg-indigo-100 rounded-md p-2">
+                                                <TrendingUpIcon className="h-6 w-6 text-indigo-600" />
+                                            </div>
+                                            <div className="ml-4">
+                                                <h4 className="text-lg font-medium text-gray-900">Index Funds (Nifty/Sensex Based)</h4>
+                                                <div className="mt-1 flex items-center">
+                                                    <span className="text-sm font-medium text-indigo-600">9–11% annual return</span>
+                                                    <span className="mx-2 text-gray-500">•</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹100</span>
+                                                    <span className="mx-2 text-gray-500">•</span>
+                                                    <span className="text-sm text-gray-500">Risk: Medium</span>
+                                                </div>
+                                                <p className="mt-2 text-sm text-gray-600">
+                                                    Index funds mirror the performance of stock market indices like Nifty 50 or Sensex. They’re passively managed and have low fees.
+                                                </p>
+                                                <div className="mt-4 bg-gray-50 rounded-md p-4">
+                                                    <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
+                                                    <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
+                                                        <li>Low-cost entry into the stock market</li>
+                                                        <li>Ideal for long-term passive investment</li>
+                                                        <li>Better returns than FDs or savings accounts</li>
+                                                    </ul>
+                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Available via all mutual fund platforms and apps</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                             </div>
                         )}
@@ -553,79 +531,62 @@ export default function DashboardHome() {
                                     {/* Option 1 */}
                                     <div className="p-6">
                                         <div className="flex items-start">
-                                            <div className="flex-shrink-0 bg-purple-100 rounded-md p-2">
-                                                <TrendingUpIcon className="h-6 w-6 text-purple-600" />
+                                            <div className="flex-shrink-0 bg-red-100 rounded-md p-2">
+                                                <BarChart3Icon className="h-6 w-6 text-red-600" />
                                             </div>
                                             <div className="ml-4">
-                                                <h4 className="text-lg font-medium text-gray-900">Growth Stock Portfolio</h4>
+                                                <h4 className="text-lg font-medium text-gray-900">Equity Mutual Funds (Small-Cap Focused)</h4>
                                                 <div className="mt-1 flex items-center">
-                                                    <span className="text-sm font-medium text-purple-600">10-15% potential annual return</span>
+                                                    <span className="text-sm font-medium text-red-600">12–18% annual return</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Minimum: $100</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹500</span>
                                                     <span className="mx-2 text-gray-500">•</span>
                                                     <span className="text-sm text-gray-500">Risk: High</span>
                                                 </div>
                                                 <p className="mt-2 text-sm text-gray-600">
-                                                    This portfolio focuses on companies with above-average growth potential. These stocks
-                                                    typically don't pay dividends as they reinvest profits to fuel further growth.
+                                                    Invests in smaller companies with high growth potential but also higher volatility.
                                                 </p>
                                                 <div className="mt-4 bg-gray-50 rounded-md p-4">
                                                     <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
-                                                    <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
-                                                        <li>Higher potential returns than more conservative options</li>
-                                                        <li>As a young investor, you have time to recover from market downturns</li>
-                                                        <li>Exposure to innovative companies shaping the future</li>
-                                                        <li>Best for long-term goals (7+ years)</li>
+                                                    <ul className="mt-2 text-sm text-gray-600 list-disc pl-5 space-y-1">
+                                                        <li>Long investment horizon benefits compounding</li>
+                                                        <li>Higher potential returns vs. large-cap funds</li>
+                                                        <li>Can start small with SIPs</li>
                                                     </ul>
                                                 </div>
-                                                <div className="mt-4 flex">
-                                                    <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Invest Now
-                                                    </button>
-                                                    <button className="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Learn More
-                                                    </button>
-                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Available on mutual fund platforms and apps</div>
                                             </div>
                                         </div>
                                     </div>
 
+
                                     {/* Option 2 */}
                                     <div className="p-6">
                                         <div className="flex items-start">
-                                            <div className="flex-shrink-0 bg-purple-100 rounded-md p-2">
-                                                <LineChartIcon className="h-6 w-6 text-purple-600" />
+                                            <div className="flex-shrink-0 bg-red-100 rounded-md p-2">
+                                                <CandlestickChartIcon className="h-6 w-6 text-red-600" />
                                             </div>
                                             <div className="ml-4">
-                                                <h4 className="text-lg font-medium text-gray-900">Tech Innovation Fund</h4>
+                                                <h4 className="text-lg font-medium text-gray-900">Direct Stock Investment (Equity Trading)</h4>
                                                 <div className="mt-1 flex items-center">
-                                                    <span className="text-sm font-medium text-purple-600">12-18% potential annual return</span>
+                                                    <span className="text-sm font-medium text-red-600">Varies widely (0–30%+)</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Minimum: $150</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹1</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Risk: Very High</span>
+                                                    <span className="text-sm text-gray-500">Risk: High</span>
                                                 </div>
                                                 <p className="mt-2 text-sm text-gray-600">
-                                                    This fund invests in technology companies at the forefront of innovation, including AI,
-                                                    blockchain, and renewable energy. High potential returns come with higher volatility.
+                                                    Buying and selling individual company stocks based on market research or trends.
                                                 </p>
                                                 <div className="mt-4 bg-gray-50 rounded-md p-4">
                                                     <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
-                                                    <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
-                                                        <li>Exposure to cutting-edge technologies that may shape your future career</li>
-                                                        <li>Potential for significant growth as technologies mature</li>
-                                                        <li>Diversification across multiple tech sectors reduces single-company risk</li>
-                                                        <li>Best for long-term goals (8+ years) with money you can afford to risk</li>
+                                                    <ul className="mt-2 text-sm text-gray-600 list-disc pl-5 space-y-1">
+                                                        <li>Learn market fundamentals early</li>
+                                                        <li>Hands-on control of investments</li>
+                                                        <li>Potential for high returns with smart picks</li>
                                                     </ul>
                                                 </div>
-                                                <div className="mt-4 flex">
-                                                    <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Invest Now
-                                                    </button>
-                                                    <button className="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Learn More
-                                                    </button>
-                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Available via stockbroking apps (Zerodha, Groww, etc.)</div>
                                             </div>
                                         </div>
                                     </div>
@@ -633,42 +594,65 @@ export default function DashboardHome() {
                                     {/* Option 3 */}
                                     <div className="p-6">
                                         <div className="flex items-start">
-                                            <div className="flex-shrink-0 bg-purple-100 rounded-md p-2">
-                                                <CoinsIcon className="h-6 w-6 text-purple-600" />
+                                            <div className="flex-shrink-0 bg-red-100 rounded-md p-2">
+                                                <BitcoinIcon className="h-6 w-6 text-red-600" />
                                             </div>
                                             <div className="ml-4">
-                                                <h4 className="text-lg font-medium text-gray-900">Emerging Markets Fund</h4>
+                                                <h4 className="text-lg font-medium text-gray-900">Cryptocurrencies (Bitcoin, Ethereum, etc.)</h4>
                                                 <div className="mt-1 flex items-center">
-                                                    <span className="text-sm font-medium text-purple-600">10-20% potential annual return</span>
+                                                    <span className="text-sm font-medium text-red-600">Highly volatile</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Minimum: $125</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹100</span>
                                                     <span className="mx-2 text-gray-500">•</span>
-                                                    <span className="text-sm text-gray-500">Risk: Very High</span>
+                                                    <span className="text-sm text-gray-500">Risk: High</span>
                                                 </div>
                                                 <p className="mt-2 text-sm text-gray-600">
-                                                    This fund invests in companies from developing economies with high growth potential. These
-                                                    markets can be volatile but offer opportunities for significant returns.
+                                                    Digital assets that are traded globally and fluctuate frequently in value.
                                                 </p>
                                                 <div className="mt-4 bg-gray-50 rounded-md p-4">
                                                     <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
-                                                    <ul className="mt-2 text-sm text-gray-600 space-y-1 list-disc pl-5">
-                                                        <li>Exposure to fast-growing economies around the world</li>
-                                                        <li>Potential for higher returns than developed markets</li>
-                                                        <li>Global diversification can reduce overall portfolio risk</li>
-                                                        <li>Best for long-term goals (8+ years) with money you can afford to risk</li>
+                                                    <ul className="mt-2 text-sm text-gray-600 list-disc pl-5 space-y-1">
+                                                        <li>Exposure to emerging asset class</li>
+                                                        <li>Accessible through many mobile apps</li>
+                                                        <li>Great for tech-savvy investors</li>
                                                     </ul>
                                                 </div>
-                                                <div className="mt-4 flex">
-                                                    <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Invest Now
-                                                    </button>
-                                                    <button className="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                                        Learn More
-                                                    </button>
-                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Available on CoinDCX, WazirX, and similar platforms</div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className="p-6">
+                                        <div className="flex items-start">
+                                            <div className="flex-shrink-0 bg-red-100 rounded-md p-2">
+                                                <BriefcaseIcon className="h-6 w-6 text-red-600" />
+                                            </div>
+                                            <div className="ml-4">
+                                                <h4 className="text-lg font-medium text-gray-900">Startup Investing via Crowdfunding</h4>
+                                                <div className="mt-1 flex items-center">
+                                                    <span className="text-sm font-medium text-red-600">High risk, high reward</span>
+                                                    <span className="mx-2 text-gray-500">•</span>
+                                                    <span className="text-sm text-gray-500">Minimum: ₹1,000</span>
+                                                    <span className="mx-2 text-gray-500">•</span>
+                                                    <span className="text-sm text-gray-500">Risk: High</span>
+                                                </div>
+                                                <p className="mt-2 text-sm text-gray-600">
+                                                    Invest small amounts in early-stage startups through regulated crowdfunding platforms.
+                                                </p>
+                                                <div className="mt-4 bg-gray-50 rounded-md p-4">
+                                                    <h5 className="text-sm font-medium text-gray-900">Why it's good for students:</h5>
+                                                    <ul className="mt-2 text-sm text-gray-600 list-disc pl-5 space-y-1">
+                                                        <li>Learn startup valuation and equity</li>
+                                                        <li>Support innovative ideas</li>
+                                                        <li>Massive upside potential if startup succeeds</li>
+                                                    </ul>
+                                                </div>
+                                                <div className="mt-4 text-sm text-gray-600">Available via platforms like Tyke, GripInvest</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         )}
@@ -686,7 +670,7 @@ export default function DashboardHome() {
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <h4 className="font-medium text-gray-900">Start Small, Grow Consistently</h4>
                                         <p className="mt-2 text-sm text-gray-600">
-                                            Begin with as little as $5 through round-ups. Consistency matters more than the initial amount.
+                                            Begin with as little as 100₹ through round-ups. Consistency matters more than the initial amount.
                                             Small weekly investments add up over time.
                                         </p>
                                     </div>

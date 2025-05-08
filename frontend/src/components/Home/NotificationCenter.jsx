@@ -103,7 +103,7 @@ export default function NotificationCenter() {
                   </li>
                 ))
               ) : (
-                <li className="px-6 py-5 text-center text-gray-500">No notifications found.</li>
+                <li></li>
               )}
             </ul>
           </div>

@@ -18,7 +18,7 @@ const ProjectRouter = () => {
         if (userIdStorage && !currentUser) {
             setCurrentUser(userIdStorage);
         }
-        if (!userIdStorage && !["/auth", "/signup"].includes(window.location.pathname)) {
+        if (!userIdStorage && !["/auth", "/signup","/dashboard"].includes(window.location.pathname)) {
             navigate('/auth');
         }
         if (userIdStorage && ['/auth', '/signup'].includes(window.location.pathname)) {

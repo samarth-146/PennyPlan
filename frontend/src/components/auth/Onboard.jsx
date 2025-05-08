@@ -118,8 +118,6 @@ export default function Onboard() {
     if (!validateForm()) return;
 
     const currentUser = localStorage.getItem("userId");
-    console.log(quizAnswers);
-    console.log(formData);
 
     try {
       await axios.put(`http://localhost:8080/onboard/${currentUser}`, {

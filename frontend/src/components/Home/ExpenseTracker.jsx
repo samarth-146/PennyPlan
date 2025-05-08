@@ -20,6 +20,8 @@ import {
 } from "lucide-react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify";
+
 
 export default function ExpenseTracker() {
     // State for expense form
@@ -121,20 +123,7 @@ export default function ExpenseTracker() {
             console.error(e);
         }
 
-        // Create new expense object
-        // const newExpense = {
-        //     id: expenses.length + 1,
-        //     description: expenseForm.description,
-        //     amount: Number.parseFloat(expenseForm.amount),
-        //     category: expenseForm.category,
-        //     date: expenseForm.date,
-        //     roundedUp: roundUpEnabled,
-        //     roundUpAmount: Number.parseFloat(roundUpAmt.toFixed(2)),
-        // }
-
-        // // Add to expenses list
-        // setExpenses([newExpense, ...expenses])
-
+        
         // Reset form
         setExpenseForm({
             description: "",
@@ -161,10 +150,7 @@ export default function ExpenseTracker() {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="flex-shrink-0 flex items-center">
-                                {/* <button className="inline-flex items-center mr-3 text-gray-500 hover:text-gray-700">
-                                    <ArrowLeftIcon className="h-5 w-5" />
-                                </button> */}
-                                {/* <PiggyBankIcon className="h-8 w-8 text-green-600" /> */}
+                                
                                 <Link to='/'>
                                 <PiggyBankIcon className="h-8 w-8 text-green-600"/>
                                 </Link>
@@ -485,23 +471,7 @@ export default function ExpenseTracker() {
                                             {transaction.roundUpTransactionCount}/{expenses.length}
                                         </p>
                                     </div>
-                                    {/* <div className="bg-gray-50 p-4 rounded-lg">
-                                        <div className="flex items-center">
-                                            <TrendingUpIcon className="h-5 w-5 text-green-500 mr-2" />
-                                            <h4 className="text-sm font-medium text-gray-700">Average Round-Up</h4>
-                                        </div>
-                                        <p className="mt-2 text-2xl font-bold text-gray-900">
-                                            $
-                                            {expenses.filter((expense) => expense.roundedUp).length > 0
-                                                ? (
-                                                    expenses
-                                                        .filter((expense) => expense.roundedUp)
-                                                        .reduce((total, expense) => total + expense.roundUpAmount, 0) /
-                                                    expenses.filter((expense) => expense.roundedUp).length
-                                                ).toFixed(2)
-                                                : "0.00"}
-                                        </p>
-                                    </div> */}
+                                    
                                 </div>
                             </div>
                         </div>

@@ -100,7 +100,7 @@ const analyzeWeeklyBehaviour = async (req, res) => {
             spendingData[cat].push(entry.totalSpent);
         });
 
-        const mlResponse = await axios.post('http://127.0.0.1:5000/analyze-behavior', {
+        const mlResponse = await axios.post('https://ml-api-wqyb.onrender.com/analyze-behavior', {
             userId,
             spendingData
         });
@@ -124,7 +124,7 @@ const getWeeklySuggestions=async(req,res)=>{
           date: e.date.toISOString(),
         }));
     
-        const mlResponse = await axios.post("http://127.0.0.1:5000/generate-suggestions", {
+        const mlResponse = await axios.post("https://ml-api-wqyb.onrender.com/generate-suggestions", {
           expenses: formattedExpenses,
         });    
         res.json({ alerts: mlResponse.data.alerts});
