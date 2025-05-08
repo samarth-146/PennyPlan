@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Dashboard from './components/Dashboard';
 import Signin from './components/auth/Signin';
 import Onboard from './components/auth/Onboard';
-import DashboardHome from './components/Home/Dashboardhome';
+import DashboardHome from './components/Home/DashboardHome';
 import ExpenseTracker from './components/Home/ExpenseTracker';
 import UserProfile from './components/Home/UserProfile';
 import NotificationCenter from './components/Home/NotificationCenter';
